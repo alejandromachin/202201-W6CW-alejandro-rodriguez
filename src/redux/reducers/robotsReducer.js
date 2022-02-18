@@ -1,6 +1,6 @@
 import actionTypes from "../actions/actionTypes";
 
-const robotReducer = (currentRobots = [], action = {}) => {
+const robotsReducer = (currentRobots = [], action = {}) => {
   let newRobots;
   switch (action.type) {
     case actionTypes.loadAllRobots:
@@ -13,4 +13,4 @@ const robotReducer = (currentRobots = [], action = {}) => {
   return newRobots;
 };
 
-export default robotReducer;
+export default robotsReducer;

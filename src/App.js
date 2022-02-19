@@ -8,6 +8,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/robots" element={<RobotsPage />} />
+      <Route path="/robots/:id" element={<RobotsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

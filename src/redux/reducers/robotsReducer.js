@@ -6,6 +6,9 @@ const robotsReducer = (currentRobots = [], action = {}) => {
     case actionTypes.loadAllRobots:
       newRobots = [...action.robots];
       break;
+    case actionTypes.getRobotById:
+      newRobots = { ...action.robot };
+      break;
 
     default:
       newRobots = [...currentRobots];

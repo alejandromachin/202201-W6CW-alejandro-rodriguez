@@ -7,3 +7,11 @@ export const loadAllRobotsThunk = async (dispatch) => {
 
   dispatch(loadAllRobotsAction(robots));
 };
+
+export const getRobotByThunk = (id) => async (dispatch) => {
+  const response = await fetch(`${process.env.REACT_APP_DEVURL}/${id}`);
+
+  const robots = await response.json();
+
+  dispatch(getRobotByIdAction(robots));
+};

@@ -16,4 +16,18 @@ describe("Given a robotsReducer function", () => {
       expect(newState).toEqual(robots);
     });
   });
+
+  describe("When it is called with a getRobotByIdAction with a robot", () => {
+    test("Then it should return that robot as a new state", () => {
+      const robot = { name: "robot1" };
+
+      const action = {
+        type: actionTypes.getRobotById,
+        robot,
+      };
+      const newState = robotsReducer(null, action);
+
+      expect(newState).toEqual(robot);
+    });
+  });
 });

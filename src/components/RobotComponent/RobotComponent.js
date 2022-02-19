@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const RobotComponent = (robot) => {
   return (
     <>
@@ -15,3 +17,13 @@ const RobotComponent = (robot) => {
 };
 
 export default RobotComponent;
+
+RobotComponent.propTypes = {
+  robot: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    velocity: PropTypes.string,
+    resistance: PropTypes.string,
+    dateOfCreation: PropTypes.string,
+  }),
+};

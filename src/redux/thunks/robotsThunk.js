@@ -4,6 +4,8 @@ export const loadAllRobotsThunk = async (dispatch) => {
       ? `${process.env.REACT_APP_PRODUCTIONURL}robots`
       : `${process.env.REACT_APP_DEVURL}robots`
   );
+
   const robots = await response.json();
+
   dispatch(loadAllRobotsThunk(robots));
 };

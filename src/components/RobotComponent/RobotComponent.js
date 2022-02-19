@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const RobotComponent = (robot) => {
+const RobotComponent = ({ robot }) => {
   return (
     <>
       <li>
@@ -22,8 +22,8 @@ RobotComponent.propTypes = {
   robot: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
-    velocity: PropTypes.string,
-    resistance: PropTypes.string,
+    velocity: PropTypes.number,
+    resistance: PropTypes.number,
     dateOfCreation: PropTypes.string,
   }),
 };

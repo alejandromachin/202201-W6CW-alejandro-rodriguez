@@ -5,7 +5,7 @@ const RobotListComponent = ({ robots }) => {
     <>
       <ul>
         {robots.map((robot) => (
-          <RobotComponent key={robot.id} robot={robot} />
+          <RobotComponent robot={robot} key={robot._id} />
         ))}
       </ul>
       ;

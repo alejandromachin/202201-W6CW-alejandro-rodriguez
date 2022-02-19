@@ -7,7 +7,7 @@
 .scannerwork
 # testing
 /coverage
-
+.env
 # production
 /build
 

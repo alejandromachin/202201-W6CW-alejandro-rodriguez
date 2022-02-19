@@ -5,5 +5,5 @@ export const loadAllRobotsThunk = async (dispatch) => {
 
   const robots = await response.json();
 
-  dispatch(loadAllRobotsAction(robots.robots));
+  dispatch(loadAllRobotsAction(robots));
 };

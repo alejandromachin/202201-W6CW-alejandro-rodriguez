@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 export const handlers = [
-  rest.get(`${process.env.REACT_APP_DEVURL}robots`, (req, res, ctx) => {
+  rest.get(`${process.env.REACT_APP_DEVURL}/`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([

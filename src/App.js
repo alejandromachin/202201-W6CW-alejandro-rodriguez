@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate, Route, Routes } from "react-router-dom";
 import RobotListComponent from "./components/RobotListComponent/RobotListComponent";
 import { loadAllRobotsThunk } from "./redux/thunks/robotsThunk";
 
@@ -15,6 +16,12 @@ function App() {
     <>
       <h1>ROBOTS:</h1>
       <RobotListComponent robots={robotsAPI} />
+
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Robots />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 }

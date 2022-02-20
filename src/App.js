@@ -10,6 +10,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/robots" element={<RobotsPage />} />
+      <Route path="/login/" element={<LoginPage />} />
       <Route path="/robots/create/:id" element={<CreateRobotFormPage />} />
       <Route path="/robots/:id" element={<RobotPage />} />
       <Route path="*" element={<NotFoundPage />} />

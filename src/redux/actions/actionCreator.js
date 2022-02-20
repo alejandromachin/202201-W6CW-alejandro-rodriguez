@@ -9,3 +9,8 @@ export const getRobotByIdAction = (robot) => ({
   type: actionTypes.getRobotById,
   robot,
 });
+
+export const createRobotAction = (robot) => ({
+  type: actionTypes.createRobot,
+  robot,
+});

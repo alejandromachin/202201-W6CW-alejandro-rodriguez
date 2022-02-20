@@ -30,4 +30,20 @@ describe("Given a robotsReducer function", () => {
       expect(newState).toEqual(robot);
     });
   });
+
+  describe("When it is called with a createRobotAction with a robot", () => {
+    test("Then it should return that robot as a part of the new state", () => {
+      const currentState = [];
+      const robot = { name: "robot1" };
+      const expectedNewState = [{ name: "robot1" }];
+
+      const action = {
+        type: actionTypes.createRobot,
+        robot,
+      };
+      const newState = robotsReducer(currentState, action);
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
 });

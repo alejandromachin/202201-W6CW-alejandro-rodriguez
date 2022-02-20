@@ -16,10 +16,7 @@ export const handlers = [
   rest.get(`${process.env.REACT_APP_DEVURL}/undefined`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ id: "test", name: "test" }));
   }),
-  rest.post(
-    `${process.env.REACT_APP_DEVURL}/create/?Authorization=Bearer_1`,
-    (req, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ id: "test", name: "test" }));
-    }
-  ),
+  rest.post(`${process.env.REACT_APP_DEVURL}/create/`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ id: "test", name: "test" }));
+  }),
 ];

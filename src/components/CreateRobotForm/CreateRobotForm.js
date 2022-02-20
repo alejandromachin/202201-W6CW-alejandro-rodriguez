@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { createRobotThunk } from "../../redux/thunks/robotsThunk";
 
 const CreateRobotForm = () => {
   const blankFields = { name: "", image: "", velocity: "", resistance: "" };
@@ -35,7 +36,7 @@ const CreateRobotForm = () => {
         <input
           type="text"
           id="image"
-          value={formData.name}
+          value={formData.image}
           onChange={changeData}
           placeholder="Image"
         />
@@ -45,7 +46,7 @@ const CreateRobotForm = () => {
           max="10"
           min="0"
           id="velocity"
-          value={formData.name}
+          value={formData.velocity}
           onChange={changeData}
           placeholder="Velocity"
         />
@@ -55,7 +56,7 @@ const CreateRobotForm = () => {
           max="10"
           min="0"
           id="resistance"
-          value={formData.name}
+          value={formData.resistance}
           onChange={changeData}
           placeholder="Resistance"
         />

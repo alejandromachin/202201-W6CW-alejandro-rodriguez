@@ -1,4 +1,3 @@
-import { getRobotByIdAction } from "../actions/actionCreator";
 import actionTypes from "../actions/actionTypes";
 import { getRobotByIdThunk, loadAllRobotsThunk } from "./robotsThunk";
 
@@ -30,7 +29,9 @@ describe("Given a getRobotByIdThunk inner function", () => {
         type: actionTypes.getRobotById,
         robot,
       };
-      await getRobotByIdThunk(dispatch);
+      const thunkFunction = getRobotByIdThunk(robot.id);
+
+      await thunkFunction(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });

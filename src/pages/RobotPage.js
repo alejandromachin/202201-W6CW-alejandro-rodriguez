@@ -13,7 +13,12 @@ const RobotPage = () => {
     dispatch(getRobotByIdThunk(id));
   }, [dispatch, id]);
 
-  return <RobotComponent robot={robots} />;
+  return (
+    <>
+      <h1>{`ROBOT ${id}:`}</h1>
+      <RobotComponent robot={robots} />
+    </>
+  );
 };
 
 export default RobotPage;

@@ -1,5 +1,6 @@
+import { getRobotByIdAction } from "../actions/actionCreator";
 import actionTypes from "../actions/actionTypes";
-import { loadAllRobotsThunk } from "./robotsThunk";
+import { getRobotByIdThunk, loadAllRobotsThunk } from "./robotsThunk";
 
 describe("Given a loadAllRobotsThunk function", () => {
   describe("When it is called", () => {
@@ -14,6 +15,22 @@ describe("Given a loadAllRobotsThunk function", () => {
         robots: robots,
       };
       await loadAllRobotsThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given a getRobotByIdThunk inner function", () => {
+  describe("When it is called", () => {
+    test("Then it should call the dispatch function with the getRobotByidAction", async () => {
+      const dispatch = jest.fn();
+      const robot = { id: 1, name: "robot1" };
+      const action = {
+        type: actionTypes.getRobotById,
+        robot,
+      };
+      await getRobotByIdThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });

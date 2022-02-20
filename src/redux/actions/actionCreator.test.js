@@ -1,5 +1,6 @@
 import {
   createRobotAction,
+  getLoginAction,
   getRobotByIdAction,
   loadAllRobotsAction,
 } from "./actionCreator";
@@ -49,6 +50,22 @@ describe("Given a createRobotAction function", () => {
       };
 
       const action = createRobotAction(robot);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given a getLoginAction function", () => {
+  describe("When it is called with a token", () => {
+    test("Then it should return an object with the action and the token", () => {
+      const token = { token: "hello I'm a token" };
+
+      const expectedAction = {
+        type: actionTypes.getLogin,
+        token,
+      };
+
+      const action = getLoginAction(token);
 
       expect(action).toEqual(expectedAction);
     });

@@ -1,4 +1,4 @@
-import { loadAllRobotsAction } from "./actionCreator";
+import { getRobotByIdAction, loadAllRobotsAction } from "./actionCreator";
 import actionTypes from "./actionTypes";
 
 describe("Given a loadAllRobotsAction function", () => {
@@ -12,6 +12,22 @@ describe("Given a loadAllRobotsAction function", () => {
       };
 
       const action = loadAllRobotsAction(robots);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given a getRobotByIdAction function", () => {
+  describe("When it is called with one robot", () => {
+    test("Then it should return an object with the action and the robot", () => {
+      const robot = [{ name: "robot1" }];
+
+      const expectedAction = {
+        type: actionTypes.getRobotById,
+        robot,
+      };
+
+      const action = getRobotByIdAction(robot);
 
       expect(action).toEqual(expectedAction);
     });

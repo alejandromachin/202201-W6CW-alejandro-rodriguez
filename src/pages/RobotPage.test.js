@@ -22,12 +22,13 @@ describe("Given a RobotPage component", () => {
           <RobotPage />
         </BrowserRouter>
       );
+      const id = 1;
       const dispatch = jest.fn();
       const getRobotByIdThunk = jest.fn();
 
-      await dispatch(getRobotByIdThunk);
+      await dispatch(getRobotByIdThunk(id));
 
-      expect(dispatch).toHaveBeenCalledWith(getRobotByIdThunk);
+      expect(dispatch).toHaveBeenCalledWith(getRobotByIdThunk(id));
     });
   });
 });

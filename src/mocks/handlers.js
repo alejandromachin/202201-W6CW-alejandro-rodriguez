@@ -19,4 +19,7 @@ export const handlers = [
   rest.post(`${process.env.REACT_APP_DEVURL}/create/`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ id: "test", name: "test" }));
   }),
+  rest.get(`${process.env.REACT_APP_DEVURL}/login/`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ token: "tokensito test" }));
+  }),
 ];

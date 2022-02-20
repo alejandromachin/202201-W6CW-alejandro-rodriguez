@@ -1,5 +1,9 @@
 import actionTypes from "../actions/actionTypes";
-import { getRobotByIdThunk, loadAllRobotsThunk } from "./robotsThunk";
+import {
+  getLoginThunk,
+  getRobotByIdThunk,
+  loadAllRobotsThunk,
+} from "./robotsThunk";
 
 describe("Given a loadAllRobotsThunk function", () => {
   describe("When it is called", () => {
@@ -32,6 +36,23 @@ describe("Given a getRobotByIdThunk inner function", () => {
       const thunkFunction = getRobotByIdThunk(robot.id);
 
       await thunkFunction(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given a getLoginThunk function", () => {
+  describe("When it is called", () => {
+    test("Then it should call the dispatch function with the getLoginAction", async () => {
+      const dispatch = jest.fn();
+      const token = { token: "tokentuki" };
+      const action = {
+        type: actionTypes.getLogin,
+        token,
+      };
+
+      await getLoginThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });

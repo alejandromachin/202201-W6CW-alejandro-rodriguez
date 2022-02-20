@@ -1,5 +1,6 @@
 import {
   createRobotAction,
+  getLoginAction,
   getRobotByIdAction,
   loadAllRobotsAction,
 } from "../actions/actionCreator";
@@ -32,4 +33,12 @@ export const createRobotThunk = (robot, token) => async (dispatch) => {
   );
   const newRobot = await response.json();
   dispatch(createRobotAction(newRobot));
+};
+
+export const getLoginThunk = async (dispatch) => {
+  const response = await fetch(process.env.REACT_APP_LOGIN);
+
+  const token = await response.json();
+  console.log(token);
+  dispatch(getLoginAction(token));
 };

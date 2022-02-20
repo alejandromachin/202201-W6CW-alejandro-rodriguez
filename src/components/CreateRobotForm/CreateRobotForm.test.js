@@ -18,4 +18,13 @@ describe("Given a CreateRobotForm component", () => {
       expect(submitButton).toBeInTheDocument();
     });
   });
+  describe("When it is clicked on the submit button", () => {
+    test("Then it should call the action on submit", () => {
+      renderWithProviders(<CreateRobotForm />);
+
+      const submitButton = screen.getByRole("button", { name: /add/i });
+
+      userEvents.click(submitButton);
+    });
+  });
 });

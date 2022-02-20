@@ -19,14 +19,17 @@ export const getRobotByIdThunk = (id) => async (dispatch) => {
   dispatch(getRobotByIdAction(robot));
 };
 
-export const createRobotThunk = (robot) => async (dispatch) => {
-  const response = await fetch(`${process.env.REACT_APP_DEVURL}/create/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(robot),
-  });
+export const createRobotThunk = (robot, token) => async (dispatch) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_DEVURL}/create/?Authorization=Bearer_${token}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(robot),
+    }
+  );
   const newRobot = await response.json();
   dispatch(createRobotAction(newRobot));
 };

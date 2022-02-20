@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createRobotThunk } from "../../redux/thunks/robotsThunk";
 
-const CreateRobotForm = () => {
+const CreateRobotForm = ({ token }) => {
   const blankFields = { name: "", image: "", velocity: "", resistance: "" };
   const dispatch = useDispatch();
 
@@ -12,7 +12,7 @@ const CreateRobotForm = () => {
   };
   const createRobot = (event) => {
     event.preventDefault();
-    dispatch(createRobotThunk(formData));
+    dispatch(createRobotThunk(formData, token));
     resetForm();
   };
   const changeData = (event) => {

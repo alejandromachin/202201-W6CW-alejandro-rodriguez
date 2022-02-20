@@ -1,6 +1,6 @@
 import actionTypes from "../actions/actionTypes";
 
-const robotsReducer = (currentToken = [], action = {}) => {
+const loginReducer = (currentToken = {}, action = {}) => {
   let newToken;
   switch (action.type) {
     case actionTypes.getLogin:
@@ -8,9 +8,9 @@ const robotsReducer = (currentToken = [], action = {}) => {
       break;
 
     default:
-      newToken = [...currentToken];
+      newToken = { ...currentToken };
   }
   return newToken;
 };
 
-export default robotsReducer;
+export default loginReducer;

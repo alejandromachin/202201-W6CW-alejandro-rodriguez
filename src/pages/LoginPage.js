@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const robots = useSelector((state) => state.robots);
+  const token = useSelector((state) => state.token);
 
   useEffect(() => {
     dispatch(loginTunk);

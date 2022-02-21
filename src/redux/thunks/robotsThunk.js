@@ -27,7 +27,7 @@ export const createRobotThunk = (robot, token) => async (dispatch) => {
     headers: {
       "Content-Type": "application/json",
 
-      Authorization: `Bearer_${token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(robot),
   });

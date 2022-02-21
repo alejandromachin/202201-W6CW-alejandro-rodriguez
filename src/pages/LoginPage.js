@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { getLoginThunk } from "../redux/thunks/robotsThunk";
@@ -36,6 +37,7 @@ const LoginContainer = styled.div`
 const LoginPage = () => {
   const blankFields = { username: "", password: "" };
   const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.token);
 
   const [formData, setFormData] = useState(blankFields);
   const resetForm = () => {

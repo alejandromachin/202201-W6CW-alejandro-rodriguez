@@ -22,7 +22,7 @@ const RobotContainer = styled.div`
     border-bottom: 5px solid black;
   }
 `;
-const RobotComponent = ({ robot }) => {
+export const RobotComponent = ({ robot }) => {
   return (
     <RobotContainer>
       <li>

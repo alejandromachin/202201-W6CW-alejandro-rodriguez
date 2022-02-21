@@ -39,6 +39,6 @@ export const getLoginThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_LOGIN);
 
   const token = await response.json();
-  console.log(token);
+
   dispatch(getLoginAction(token));
 };

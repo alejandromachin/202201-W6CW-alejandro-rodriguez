@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { wrongLoginAction } from "../redux/actions/actionCreator";
 import { getLoginThunk } from "../redux/thunks/robotsThunk";
 
 const LoginContainer = styled.div`
@@ -37,7 +38,11 @@ const LoginContainer = styled.div`
 const LoginPage = () => {
   const blankFields = { username: "", password: "" };
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.token);
+  const error = useSelector((state) => state.error);
+
+  useEffect(() => {
+    dispatch(wrongLoginAction(null));
+  }, [dispatch]);
 
   const [formData, setFormData] = useState(blankFields);
   const resetForm = () => {
@@ -74,6 +79,7 @@ const LoginPage = () => {
           />
 
           <button type="submit">Add</button>
+          <h3>{error}</h3>
         </form>
       </LoginContainer>
     </>

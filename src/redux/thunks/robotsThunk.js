@@ -3,6 +3,7 @@ import {
   getLoginAction,
   getRobotByIdAction,
   loadAllRobotsAction,
+  wrongLoginAction,
 } from "../actions/actionCreator";
 
 export const loadAllRobotsThunk = async (dispatch) => {
@@ -42,6 +43,11 @@ export const getLoginThunk = (userData) => async (dispatch) => {
     },
     body: JSON.stringify(userData),
   });
+  if (!response.ok) {
+    const error = new Error("Wrong information");
+
+    dispatch(wrongLoginAction(error.message));
+  }
 
   const token = await response.json();
 

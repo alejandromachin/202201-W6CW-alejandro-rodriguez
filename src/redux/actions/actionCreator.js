@@ -18,3 +18,8 @@ export const getLoginAction = (token) => ({
   type: actionTypes.getLogin,
   token,
 });
+
+export const wrongLoginAction = (error) => ({
+  type: actionTypes.wrongLogin,
+  error,
+});

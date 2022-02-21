@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const RobotContainer = styled.div`
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: column;
   border: 5px solid black;
@@ -27,7 +28,7 @@ const RobotComponent = ({ robot }) => {
       <li>
         <div>
           <img src={robot.image} alt={robot.name} width="200" height="100" />
-          <h2>Name: {robot.name}</h2>
+          <h2>{robot.name}</h2>
           <p>Velocity: {robot.velocity}</p>
           <p>Resistance: {robot.resistency}</p>
           <p>Date of Creation: {robot.dateOfCreation}</p>

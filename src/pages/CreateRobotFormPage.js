@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import CreateRobotForm from "../components/CreateRobotForm/CreateRobotForm";
 
 const CreateRobotFormPage = () => {
-  const { id } = useParams();
+  const { token } = useSelector((state) => state.token);
 
-  return <CreateRobotForm token={id} />;
+  return <CreateRobotForm token={token} />;
 };
 
 export default CreateRobotFormPage;

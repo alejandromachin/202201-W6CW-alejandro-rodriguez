@@ -17,7 +17,7 @@ function App() {
         <Route path="/robots" element={<RobotsPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/robots/create/:id" element={<CreateRobotFormPage />} />
+        <Route path="/robots/create/" element={<CreateRobotFormPage />} />
         <Route path="/robots/:id" element={<RobotPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

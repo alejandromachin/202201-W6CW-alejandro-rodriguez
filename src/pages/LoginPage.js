@@ -1,15 +1,48 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import { getLoginThunk } from "../redux/thunks/robotsThunk";
 
 const LoginPage = () => {
+  const blankFields = { username: "", password: "" };
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.token);
 
-  useEffect(() => {
-    dispatch(getLoginThunk);
-  }, [dispatch]);
+  const [formData, setFormData] = useState(blankFields);
+  const resetForm = () => {
+    setFormData(blankFields);
+  };
+  const login = (event) => {
+    event.preventDefault();
+    dispatch(getLoginThunk(formData));
+    resetForm();
+  };
+  const changeData = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  };
+  return (
+    <>
+      <form onSubmit={login} noValidate autoComplete="off">
+        <label htmlFor="username">Username: </label>
+        <input
+          type="text"
+          id="username"
+          value={formData.username}
+          onChange={changeData}
+        />
+        <label htmlFor="password">Password: </label>
+        <input
+          type="password"
+          id="password"
+          value={formData.password}
+          onChange={changeData}
+        />
 
-  return <h1>{`YOUR TOKEN IS: ${token.token}`}</h1>;
+        <button type="submit">Add</button>
+      </form>
+    </>
+  );
 };
 export default LoginPage;

@@ -5,14 +5,20 @@ const RobotContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 5px solid black;
+  box-shadow: 2px 2px 31px 6px rgba(0, 0, 0, 0.48);
+  border-radius: 10px;
   width: 200px;
   height: 300px;
   text-align: center;
   margin-top: 10px;
   list-style: none;
   align-items: center;
+  background-image: url(https://img.freepik.com/vector-gratis/vector-fondo-tecnologia-digital-patron-hexagonal-tono-blanco_53876-110878.jpg?size=626&ext=jpg&ga=GA1.2.1514007440.1643328000);
+
   & img {
-    border: 5px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 5px solid black;
   }
 `;
 const RobotComponent = ({ robot }) => {

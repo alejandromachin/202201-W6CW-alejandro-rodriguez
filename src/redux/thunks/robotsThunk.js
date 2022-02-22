@@ -48,6 +48,7 @@ export const getLoginThunk = (userData) => async (dispatch) => {
     const error = new Error("Wrong username or password");
 
     dispatch(wrongLoginAction(error.message));
+    return;
   }
 
   const token = await response.json();

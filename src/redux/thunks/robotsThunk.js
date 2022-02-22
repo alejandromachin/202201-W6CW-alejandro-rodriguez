@@ -3,6 +3,7 @@ import {
   getLoginAction,
   getRobotByIdAction,
   loadAllRobotsAction,
+  logedInAction,
   wrongLoginAction,
 } from "../actions/actionCreator";
 
@@ -47,9 +48,11 @@ export const getLoginThunk = (userData) => async (dispatch) => {
     const error = new Error("Wrong username or password");
 
     dispatch(wrongLoginAction(error.message));
+    return;
   }
 
   const token = await response.json();
 
+  dispatch(logedInAction());
   dispatch(getLoginAction(token));
 };

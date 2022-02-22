@@ -7,6 +7,10 @@ const errorReducer = (currentError = "", action = "") => {
       newToken = action.error;
 
       break;
+    case actionTypes.logedIn:
+      newToken = "Logged in";
+
+      break;
 
     default:
       newToken = currentError;

@@ -23,3 +23,7 @@ export const wrongLoginAction = (error) => ({
   type: actionTypes.wrongLogin,
   error,
 });
+export const logedInAction = (message) => ({
+  type: actionTypes.logedIn,
+  message,
+});

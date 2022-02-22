@@ -3,6 +3,7 @@ import {
   getLoginAction,
   getRobotByIdAction,
   loadAllRobotsAction,
+  logedInAction,
   wrongLoginAction,
 } from "../actions/actionCreator";
 
@@ -51,5 +52,6 @@ export const getLoginThunk = (userData) => async (dispatch) => {
 
   const token = await response.json();
 
+  dispatch(logedInAction());
   dispatch(getLoginAction(token));
 };
